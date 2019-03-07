@@ -13,7 +13,7 @@ namespace Main
         {
             var laborator1 = new Lab1();
 
-            laborator1.Ceva();
+            laborator1.CitesteChestiiDinMbr();
         }
     }
 }
