@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
  * by Daniel Morariu
  */
 
-namespace Laborator1
+namespace Common
 {
     public class WinApiClass
     {

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Laborator1;
+﻿using Laborator1;
+using Laborator2;
 
 namespace Main
 {
@@ -11,9 +7,9 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var laborator1 = new Lab1();
-
-            laborator1.CitesteChestiiDinMbr();
+            var laborator2 = new Lab2();
+            laborator2.LaunchProgram(@"C:\WINDOWS\system32\notepad.exe", " ceva.txt");
+            
         }
     }
 }
