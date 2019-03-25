@@ -19,11 +19,11 @@ namespace Laborator3
 
             Controls.Add(processListBox);
 
-            var processes = GetProcese();
+            var processes = GetProcesses();
             UpdateList(processes);
         }
 
-        private List<Proces> GetProcese()
+        private List<Proces> GetProcesses()
         {
             var list = new List<Proces>();
 
@@ -48,12 +48,12 @@ namespace Laborator3
             return list;
         }
 
-        private void UpdateList(List<Proces> procese)
+        private void UpdateList(List<Proces> processes)
         {
             processListBox.Items.Clear();
-            foreach (var proces in procese)
+            foreach (var process in processes)
             {
-                processListBox.Items.Add(proces.ToString());
+                processListBox.Items.Add(process.ToString());
             }
         }
 
@@ -67,7 +67,7 @@ namespace Laborator3
 
             MessageBox.Show(WinApiClass.GetLastError().ToString());
 
-            var processes = GetProcese();
+            var processes = GetProcesses();
             UpdateList(processes);
         }
     }

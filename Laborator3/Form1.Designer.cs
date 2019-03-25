@@ -37,7 +37,7 @@
             this.buttonEndTask.Name = "buttonEndTask";
             this.buttonEndTask.Size = new System.Drawing.Size(75, 23);
             this.buttonEndTask.TabIndex = 0;
-            this.buttonEndTask.Text = "button1";
+            this.buttonEndTask.Text = "End task";
             this.buttonEndTask.UseVisualStyleBackColor = true;
             this.buttonEndTask.Click += new System.EventHandler(this.buttonEndTask_Click);
             // 
