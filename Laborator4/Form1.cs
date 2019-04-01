@@ -199,6 +199,17 @@ namespace Laborator4
             return 0;
         }
 
+        private uint DoStuff(IntPtr intPtr)
+        {
+            while (progressBar4.Value < Constants.ProgressBarMaximumValue)
+            {
+                var methodInvoker = new MethodInvoker(() => progressBar4.Value++);
+                progressBar4.Invoke(methodInvoker);
+            }
+
+            return 0;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Thread1Running = !Thread1Running;
@@ -253,6 +264,65 @@ namespace Laborator4
             button2.Enabled = false;
             button3.Enabled = false;
             button4.Enabled = false;
+        }
+
+        private void buttonSuspendThread1_Click(object sender, EventArgs e)
+        {
+            GetAndDisplayValuesForThread(handle1);
+        }
+
+        private void buttonSuspendThread2_Click(object sender, EventArgs e)
+        {
+            GetAndDisplayValuesForThread(handle2);
+        }
+
+        private void buttonSuspendThread3_Click(object sender, EventArgs e)
+        {
+            GetAndDisplayValuesForThread(handle3);
+        }
+
+        private void buttonSuspendThread4_Click(object sender, EventArgs e)
+        {
+            GetAndDisplayValuesForThread(handle4);
+        }
+
+        private void GetAndDisplayValuesForThread(uint threadHandle)
+        {
+            var lpCreationTime = new WinApiClass.FILETIME();
+            var lpExitTime = new WinApiClass.FILETIME();
+            var lpKernelTime = new WinApiClass.FILETIME();
+            var lpUserTime = new WinApiClass.FILETIME();
+
+            WinApiClass.GetThreadTimes(
+                (IntPtr) threadHandle,
+                out lpCreationTime,
+                out lpExitTime, 
+                out lpKernelTime,
+                out lpUserTime
+            );
+
+            var lpSystemTimeCreationTime = new WinApiClass.SYSTEMTIME();
+            var lpSystemTimeExitTime = new WinApiClass.SYSTEMTIME();
+            var lpSystemTimeKernelTime = new WinApiClass.SYSTEMTIME();
+            var lpSystemTimeUserTime = new WinApiClass.SYSTEMTIME();
+
+            WinApiClass.FileTimeToSystemTime(ref lpCreationTime, out lpSystemTimeCreationTime);
+            WinApiClass.FileTimeToSystemTime(ref lpExitTime, out lpSystemTimeExitTime);
+            WinApiClass.FileTimeToSystemTime(ref lpKernelTime, out lpSystemTimeKernelTime);
+            WinApiClass.FileTimeToSystemTime(ref lpUserTime, out lpSystemTimeUserTime);
+
+            var systemCreationTimeString = GetStringRepresentationForSystemTime(lpSystemTimeCreationTime);
+            var systemExitTimeString = GetStringRepresentationForSystemTime(lpSystemTimeExitTime);
+
+            textBoxTimeData.Text = $"Creation time: {systemCreationTimeString}\r\nExit time: {systemExitTimeString}\r\n";
+            textBoxTimeData.Text += $"Kernel time: {lpSystemTimeKernelTime.Milliseconds} ms\r\n";
+            textBoxTimeData.Text += $"User time: {lpSystemTimeUserTime.Milliseconds} ms";
+        }
+
+        private string GetStringRepresentationForSystemTime(WinApiClass.SYSTEMTIME systemTime)
+        {
+            return
+                $"{systemTime.Day}.{systemTime.Month}.{systemTime.Year} {systemTime.Hour}:{systemTime.Minute}:{systemTime.Milliseconds}";
         }
     }
 }

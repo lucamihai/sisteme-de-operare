@@ -38,6 +38,12 @@
             this.progressBar4 = new System.Windows.Forms.ProgressBar();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.buttonSuspendThread2 = new System.Windows.Forms.Button();
+            this.buttonSuspendThread1 = new System.Windows.Forms.Button();
+            this.buttonSuspendThread3 = new System.Windows.Forms.Button();
+            this.buttonSuspendThread4 = new System.Windows.Forms.Button();
+            this.textBoxTimeData = new System.Windows.Forms.TextBox();
+            this.labelTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -110,7 +116,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(434, 330);
+            this.button5.Location = new System.Drawing.Point(84, 391);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 8;
@@ -120,7 +126,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(584, 330);
+            this.button6.Location = new System.Drawing.Point(234, 391);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 9;
@@ -128,11 +134,74 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // buttonSuspendThread2
+            // 
+            this.buttonSuspendThread2.Location = new System.Drawing.Point(417, 107);
+            this.buttonSuspendThread2.Name = "buttonSuspendThread2";
+            this.buttonSuspendThread2.Size = new System.Drawing.Size(75, 23);
+            this.buttonSuspendThread2.TabIndex = 10;
+            this.buttonSuspendThread2.Text = "Time";
+            this.buttonSuspendThread2.UseVisualStyleBackColor = true;
+            this.buttonSuspendThread2.Click += new System.EventHandler(this.buttonSuspendThread2_Click);
+            // 
+            // buttonSuspendThread1
+            // 
+            this.buttonSuspendThread1.Location = new System.Drawing.Point(417, 78);
+            this.buttonSuspendThread1.Name = "buttonSuspendThread1";
+            this.buttonSuspendThread1.Size = new System.Drawing.Size(75, 23);
+            this.buttonSuspendThread1.TabIndex = 10;
+            this.buttonSuspendThread1.Text = "Time";
+            this.buttonSuspendThread1.UseVisualStyleBackColor = true;
+            this.buttonSuspendThread1.Click += new System.EventHandler(this.buttonSuspendThread1_Click);
+            // 
+            // buttonSuspendThread3
+            // 
+            this.buttonSuspendThread3.Location = new System.Drawing.Point(417, 136);
+            this.buttonSuspendThread3.Name = "buttonSuspendThread3";
+            this.buttonSuspendThread3.Size = new System.Drawing.Size(75, 23);
+            this.buttonSuspendThread3.TabIndex = 11;
+            this.buttonSuspendThread3.Text = "Time";
+            this.buttonSuspendThread3.UseVisualStyleBackColor = true;
+            this.buttonSuspendThread3.Click += new System.EventHandler(this.buttonSuspendThread3_Click);
+            // 
+            // buttonSuspendThread4
+            // 
+            this.buttonSuspendThread4.Location = new System.Drawing.Point(417, 165);
+            this.buttonSuspendThread4.Name = "buttonSuspendThread4";
+            this.buttonSuspendThread4.Size = new System.Drawing.Size(75, 23);
+            this.buttonSuspendThread4.TabIndex = 12;
+            this.buttonSuspendThread4.Text = "Time";
+            this.buttonSuspendThread4.UseVisualStyleBackColor = true;
+            this.buttonSuspendThread4.Click += new System.EventHandler(this.buttonSuspendThread4_Click);
+            // 
+            // textBoxTimeData
+            // 
+            this.textBoxTimeData.Location = new System.Drawing.Point(475, 265);
+            this.textBoxTimeData.Multiline = true;
+            this.textBoxTimeData.Name = "textBoxTimeData";
+            this.textBoxTimeData.Size = new System.Drawing.Size(231, 149);
+            this.textBoxTimeData.TabIndex = 13;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(472, 249);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(30, 13);
+            this.labelTime.TabIndex = 14;
+            this.labelTime.Text = "Time";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTime);
+            this.Controls.Add(this.textBoxTimeData);
+            this.Controls.Add(this.buttonSuspendThread4);
+            this.Controls.Add(this.buttonSuspendThread3);
+            this.Controls.Add(this.buttonSuspendThread1);
+            this.Controls.Add(this.buttonSuspendThread2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.progressBar4);
@@ -146,6 +215,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -161,6 +231,12 @@
         private System.Windows.Forms.ProgressBar progressBar4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonSuspendThread2;
+        private System.Windows.Forms.Button buttonSuspendThread1;
+        private System.Windows.Forms.Button buttonSuspendThread3;
+        private System.Windows.Forms.Button buttonSuspendThread4;
+        private System.Windows.Forms.TextBox textBoxTimeData;
+        private System.Windows.Forms.Label labelTime;
     }
 }
 
