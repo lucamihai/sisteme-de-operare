@@ -29,9 +29,6 @@ namespace Laborator2
             Thread.Sleep(2000);
             WinApiClass.TerminateProcess(processInformation.hProcess, 1);
             Console.WriteLine($"Last error: {WinApiClass.GetLastError()}");
-            
-
-            int a = 10;
         }
     }
 }

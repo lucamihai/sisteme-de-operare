@@ -1,5 +1,5 @@
-﻿using Laborator1;
-using Laborator2;
+﻿using System;
+using Laborator5;
 
 namespace Main
 {
@@ -7,9 +7,11 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var laborator2 = new Lab2();
-            laborator2.LaunchProgram(@"C:\WINDOWS\system32\notepad.exe", " ceva.txt");
-            
+            var laborator5 = new Lab5();
+            laborator5.Start();
+
+            Console.Read();
+            Environment.Exit(0);
         }
     }
 }
