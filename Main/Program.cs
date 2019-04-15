@@ -1,5 +1,5 @@
 ﻿using System;
-using Laborator5;
+using Laborator6;
 
 namespace Main
 {
@@ -7,8 +7,8 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var laborator5 = new Lab5();
-            laborator5.Start();
+            var lab6 = new Lab6_2();
+            lab6.Start();
 
             Console.Read();
             Environment.Exit(0);
