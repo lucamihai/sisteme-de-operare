@@ -7,8 +7,11 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var lab6 = new Lab6_2();
-            lab6.Start();
+            var fileReadingAndWriting = new FileReadingAndWriting();
+            fileReadingAndWriting.Start();
+
+            var matrixReading = new MatrixReading();
+            matrixReading.Start();
 
             Console.Read();
             Environment.Exit(0);

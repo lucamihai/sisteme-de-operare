@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 using Common;
 
 namespace Laborator6
 {
-    public class Lab6_2
+    public class MatrixReading
     {
         private uint threadId1;
         private uint threadId2;
@@ -21,11 +22,11 @@ namespace Laborator6
         private uint threadHandle6;
 
         private int[,] matrix;
-        private int[] rowMinimum = new int[5];
+        private int[] rowMinimumValue = new int[Constants.MatrixRowLength];
 
         private WinApiClass.CRITICAL_SECTION criticalSection;
 
-        public Lab6_2()
+        public MatrixReading()
         {
             WinApiClass.InitializeCriticalSection(out criticalSection);
         }
@@ -33,9 +34,10 @@ namespace Laborator6
         public void Start()
         {
             matrix = GenerateRandomMatrix();
+            DisplayMatrix();
             for (int i = 0; i < 5; i++)
             {
-                rowMinimum[i] = int.MaxValue;
+                rowMinimumValue[i] = int.MaxValue;
             }
 
             InitializeThreads();
@@ -45,6 +47,9 @@ namespace Laborator6
             WinApiClass.ResumeThread((IntPtr)threadHandle3);
             WinApiClass.ResumeThread((IntPtr)threadHandle4);
             WinApiClass.ResumeThread((IntPtr)threadHandle5);
+
+            Thread.Sleep(50);
+
             WinApiClass.ResumeThread((IntPtr)threadHandle6);
         }
 
@@ -61,6 +66,20 @@ namespace Laborator6
             }
 
             return matrix;
+        }
+
+        private void DisplayMatrix()
+        {
+            Console.WriteLine($"Generated matrix:{Environment.NewLine}");
+            for (int row = 0; row < Constants.MatrixRowLength; row++)
+            {
+                for (int column = 0; column < Constants.MatrixColumnLength; column++)
+                {
+                    Console.Write($"{matrix[row, column]} ");
+                }
+
+                Console.WriteLine();
+            }
         }
 
         private void InitializeThreads()
@@ -128,9 +147,9 @@ namespace Laborator6
             var rowNumber = (int)paramHandle.Target;
             for (int col = 0; col < Constants.MatrixColumnLength; col++)
             {
-                if (matrix[rowNumber, col] < rowMinimum[rowNumber])
+                if (matrix[rowNumber, col] < rowMinimumValue[rowNumber])
                 {
-                    rowMinimum[rowNumber] = matrix[rowNumber, col];
+                    rowMinimumValue[rowNumber] = matrix[rowNumber, col];
                 }
             }
 
@@ -138,23 +157,24 @@ namespace Laborator6
 
             return 0;
         }
+
         private uint GetSmallestMinimum(IntPtr lpParam)
         { 
-            var min = int.MaxValue;
+            var minimumValue = int.MaxValue;
 
             WinApiClass.EnterCriticalSection(ref criticalSection);
 
             for (int col = 0; col < 5; col++)
             {
-                if (rowMinimum[col] < min)
+                if (rowMinimumValue[col] < minimumValue)
                 {
-                    min = rowMinimum[ col];
+                    minimumValue = rowMinimumValue[ col];
                 }
             }
 
             WinApiClass.LeaveCriticalSection(ref criticalSection);
 
-            Console.WriteLine($"MINIMUL ESTE {min}");
+            Console.WriteLine($"Minimum value: {minimumValue}");
 
             return 0;
         }
