@@ -1,5 +1,5 @@
 ﻿using System;
-using Laborator6;
+using Laborator7;
 
 namespace Main
 {
@@ -7,11 +7,8 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            var fileReadingAndWriting = new FileReadingAndWriting();
-            fileReadingAndWriting.Start();
-
-            var matrixReading = new MatrixReading();
-            matrixReading.Start();
+            var lab7 = new Lab7();
+            lab7.Start();
 
             Console.Read();
             Environment.Exit(0);

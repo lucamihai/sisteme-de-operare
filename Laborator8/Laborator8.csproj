@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BF04727-4B41-479E-8B9D-ACA78750D909}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Main</RootNamespace>
-    <AssemblyName>Main</AssemblyName>
+    <ProjectGuid>{DF076FFA-E4E4-470B-A691-90FFD6EF20FB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Laborator8</RootNamespace>
+    <AssemblyName>Laborator8</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,36 +40,52 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Laborator1\Laborator1.csproj">
-      <Project>{5f49b654-5b6d-410d-92c0-d2e1026eb1ac}</Project>
-      <Name>Laborator1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator2\Laborator2.csproj">
-      <Project>{9F3E6E44-7019-44B4-9A98-A36BD043B687}</Project>
-      <Name>Laborator2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator5\Laborator5.csproj">
-      <Project>{89572d87-c037-46e0-bf31-0c337caa9696}</Project>
-      <Name>Laborator5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator6\Laborator6.csproj">
-      <Project>{b3f1dd40-2641-4d1e-ae6e-89d2cc432c83}</Project>
-      <Name>Laborator6</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator7\Laborator7.csproj">
-      <Project>{0d00049a-6e88-4df3-aef2-35ed3a3a69fa}</Project>
-      <Name>Laborator7</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{a793772d-fecd-4ef7-a503-5f118aff2035}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

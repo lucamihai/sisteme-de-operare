@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BF04727-4B41-479E-8B9D-ACA78750D909}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Main</RootNamespace>
-    <AssemblyName>Main</AssemblyName>
+    <ProjectGuid>{0D00049A-6E88-4DF3-AEF2-35ED3A3A69FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Laborator7</RootNamespace>
+    <AssemblyName>Laborator7</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,32 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Lab7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Laborator1\Laborator1.csproj">
-      <Project>{5f49b654-5b6d-410d-92c0-d2e1026eb1ac}</Project>
-      <Name>Laborator1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator2\Laborator2.csproj">
-      <Project>{9F3E6E44-7019-44B4-9A98-A36BD043B687}</Project>
-      <Name>Laborator2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator5\Laborator5.csproj">
-      <Project>{89572d87-c037-46e0-bf31-0c337caa9696}</Project>
-      <Name>Laborator5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator6\Laborator6.csproj">
-      <Project>{b3f1dd40-2641-4d1e-ae6e-89d2cc432c83}</Project>
-      <Name>Laborator6</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Laborator7\Laborator7.csproj">
-      <Project>{0d00049a-6e88-4df3-aef2-35ed3a3a69fa}</Project>
-      <Name>Laborator7</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{a793772d-fecd-4ef7-a503-5f118aff2035}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
