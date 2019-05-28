@@ -18,7 +18,7 @@ namespace Laborator9._2
 
         private static void WriteToFile()
         {
-            handleFileMutex = WinApiClass.OpenMutex(0x00100000, true, "FileMutex");
+            handleFileMutex = WinApiClass.OpenMutex(Constants.AccessSynchronized, true, "FileMutex");
             uint ceva = 1;
 
             while (ceva != 0)
